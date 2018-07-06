@@ -3,35 +3,29 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2361974320EF9BB500F8D94E /* ProteinListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2361974120EF9BB500F8D94E /* ProteinListViewController.swift */; };
-		2361974420EF9BB500F8D94E /* ProteinListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2361974220EF9BB500F8D94E /* ProteinListViewController.xib */; };
-		2361974620EFA15800F8D94E /* ligands.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2361974520EFA15800F8D94E /* ligands.txt */; };
-		23DB191320ED193700768248 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DB191220ED193700768248 /* AppDelegate.swift */; };
-		23DB191520ED193700768248 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DB191420ED193700768248 /* LoginViewController.swift */; };
-		23DB191820ED193800768248 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23DB191620ED193800768248 /* Main.storyboard */; };
-		23DB191A20ED193A00768248 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23DB191920ED193A00768248 /* Assets.xcassets */; };
-		23DB191D20ED193A00768248 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23DB191B20ED193A00768248 /* LaunchScreen.storyboard */; };
+		23095A3C20EFDEBD00CF299F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23095A3B20EFDEBD00CF299F /* AppDelegate.swift */; };
+		23095A3E20EFDEBD00CF299F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23095A3D20EFDEBD00CF299F /* ViewController.swift */; };
+		23095A4120EFDEBD00CF299F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23095A3F20EFDEBD00CF299F /* Main.storyboard */; };
+		23095A4320EFDEBD00CF299F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23095A4220EFDEBD00CF299F /* Assets.xcassets */; };
+		23095A4620EFDEBD00CF299F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23095A4420EFDEBD00CF299F /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2361974120EF9BB500F8D94E /* ProteinListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProteinListViewController.swift; sourceTree = "<group>"; };
-		2361974220EF9BB500F8D94E /* ProteinListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProteinListViewController.xib; sourceTree = "<group>"; };
-		2361974520EFA15800F8D94E /* ligands.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ligands.txt; sourceTree = "<group>"; };
-		23DB190F20ED193700768248 /* SwiftyProtein.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyProtein.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		23DB191220ED193700768248 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		23DB191420ED193700768248 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		23DB191720ED193800768248 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		23DB191920ED193A00768248 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		23DB191C20ED193A00768248 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		23DB191E20ED193A00768248 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23095A3820EFDEBD00CF299F /* SwiftyProtein.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyProtein.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		23095A3B20EFDEBD00CF299F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		23095A3D20EFDEBD00CF299F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		23095A4020EFDEBD00CF299F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		23095A4220EFDEBD00CF299F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		23095A4520EFDEBD00CF299F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		23095A4720EFDEBD00CF299F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		23DB190C20ED193700768248 /* Frameworks */ = {
+		23095A3520EFDEBD00CF299F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,50 +35,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		233FF9E920EE628100EEF20F /* Supporting Files */ = {
+		23095A2F20EFDEBD00CF299F = {
 			isa = PBXGroup;
 			children = (
-				2361974520EFA15800F8D94E /* ligands.txt */,
-				23DB191B20ED193A00768248 /* LaunchScreen.storyboard */,
-				23DB191920ED193A00768248 /* Assets.xcassets */,
-				23DB191E20ED193A00768248 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		233FF9EA20EE629B00EEF20F /* Main Files */ = {
-			isa = PBXGroup;
-			children = (
-				23DB191620ED193800768248 /* Main.storyboard */,
-				23DB191420ED193700768248 /* LoginViewController.swift */,
-				2361974120EF9BB500F8D94E /* ProteinListViewController.swift */,
-				2361974220EF9BB500F8D94E /* ProteinListViewController.xib */,
-			);
-			name = "Main Files";
-			sourceTree = "<group>";
-		};
-		23DB190620ED193700768248 = {
-			isa = PBXGroup;
-			children = (
-				23DB191120ED193700768248 /* SwiftyProtein */,
-				23DB191020ED193700768248 /* Products */,
+				23095A3A20EFDEBD00CF299F /* SwiftyProtein */,
+				23095A3920EFDEBD00CF299F /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		23DB191020ED193700768248 /* Products */ = {
+		23095A3920EFDEBD00CF299F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				23DB190F20ED193700768248 /* SwiftyProtein.app */,
+				23095A3820EFDEBD00CF299F /* SwiftyProtein.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		23DB191120ED193700768248 /* SwiftyProtein */ = {
+		23095A3A20EFDEBD00CF299F /* SwiftyProtein */ = {
 			isa = PBXGroup;
 			children = (
-				233FF9EA20EE629B00EEF20F /* Main Files */,
-				233FF9E920EE628100EEF20F /* Supporting Files */,
-				23DB191220ED193700768248 /* AppDelegate.swift */,
+				23095A3B20EFDEBD00CF299F /* AppDelegate.swift */,
+				23095A3D20EFDEBD00CF299F /* ViewController.swift */,
+				23095A3F20EFDEBD00CF299F /* Main.storyboard */,
+				23095A4220EFDEBD00CF299F /* Assets.xcassets */,
+				23095A4420EFDEBD00CF299F /* LaunchScreen.storyboard */,
+				23095A4720EFDEBD00CF299F /* Info.plist */,
 			);
 			path = SwiftyProtein;
 			sourceTree = "<group>";
@@ -92,13 +67,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		23DB190E20ED193700768248 /* SwiftyProtein */ = {
+		23095A3720EFDEBD00CF299F /* SwiftyProtein */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 23DB192120ED193A00768248 /* Build configuration list for PBXNativeTarget "SwiftyProtein" */;
+			buildConfigurationList = 23095A4A20EFDEBD00CF299F /* Build configuration list for PBXNativeTarget "SwiftyProtein" */;
 			buildPhases = (
-				23DB190B20ED193700768248 /* Sources */,
-				23DB190C20ED193700768248 /* Frameworks */,
-				23DB190D20ED193700768248 /* Resources */,
+				23095A3420EFDEBD00CF299F /* Sources */,
+				23095A3520EFDEBD00CF299F /* Frameworks */,
+				23095A3620EFDEBD00CF299F /* Resources */,
 			);
 			buildRules = (
 			);
@@ -106,83 +81,81 @@
 			);
 			name = SwiftyProtein;
 			productName = SwiftyProtein;
-			productReference = 23DB190F20ED193700768248 /* SwiftyProtein.app */;
+			productReference = 23095A3820EFDEBD00CF299F /* SwiftyProtein.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		23DB190720ED193700768248 /* Project object */ = {
+		23095A3020EFDEBD00CF299F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0940;
-				LastUpgradeCheck = 0940;
-				ORGANIZATIONNAME = "Nikolas Ponomarov";
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Mykola Ponomarov";
 				TargetAttributes = {
-					23DB190E20ED193700768248 = {
-						CreatedOnToolsVersion = 9.4.1;
+					23095A3720EFDEBD00CF299F = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 23DB190A20ED193700768248 /* Build configuration list for PBXProject "SwiftyProtein" */;
-			compatibilityVersion = "Xcode 9.3";
+			buildConfigurationList = 23095A3320EFDEBD00CF299F /* Build configuration list for PBXProject "SwiftyProtein" */;
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 23DB190620ED193700768248;
-			productRefGroup = 23DB191020ED193700768248 /* Products */;
+			mainGroup = 23095A2F20EFDEBD00CF299F;
+			productRefGroup = 23095A3920EFDEBD00CF299F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				23DB190E20ED193700768248 /* SwiftyProtein */,
+				23095A3720EFDEBD00CF299F /* SwiftyProtein */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		23DB190D20ED193700768248 /* Resources */ = {
+		23095A3620EFDEBD00CF299F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23DB191D20ED193A00768248 /* LaunchScreen.storyboard in Resources */,
-				2361974620EFA15800F8D94E /* ligands.txt in Resources */,
-				23DB191A20ED193A00768248 /* Assets.xcassets in Resources */,
-				2361974420EF9BB500F8D94E /* ProteinListViewController.xib in Resources */,
-				23DB191820ED193800768248 /* Main.storyboard in Resources */,
+				23095A4620EFDEBD00CF299F /* LaunchScreen.storyboard in Resources */,
+				23095A4320EFDEBD00CF299F /* Assets.xcassets in Resources */,
+				23095A4120EFDEBD00CF299F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		23DB190B20ED193700768248 /* Sources */ = {
+		23095A3420EFDEBD00CF299F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23DB191520ED193700768248 /* LoginViewController.swift in Sources */,
-				23DB191320ED193700768248 /* AppDelegate.swift in Sources */,
-				2361974320EF9BB500F8D94E /* ProteinListViewController.swift in Sources */,
+				23095A3E20EFDEBD00CF299F /* ViewController.swift in Sources */,
+				23095A3C20EFDEBD00CF299F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		23DB191620ED193800768248 /* Main.storyboard */ = {
+		23095A3F20EFDEBD00CF299F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				23DB191720ED193800768248 /* Base */,
+				23095A4020EFDEBD00CF299F /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		23DB191B20ED193A00768248 /* LaunchScreen.storyboard */ = {
+		23095A4420EFDEBD00CF299F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				23DB191C20ED193A00768248 /* Base */,
+				23095A4520EFDEBD00CF299F /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -190,7 +163,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		23DB191F20ED193A00768248 /* Debug */ = {
+		23095A4820EFDEBD00CF299F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -200,12 +173,10 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -213,7 +184,6 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -241,7 +211,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -250,7 +220,7 @@
 			};
 			name = Debug;
 		};
-		23DB192020ED193A00768248 /* Release */ = {
+		23095A4920EFDEBD00CF299F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -260,12 +230,10 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -273,7 +241,6 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -295,45 +262,36 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		23DB192220ED193A00768248 /* Debug */ = {
+		23095A4B20EFDEBD00CF299F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A7A6C24PU5;
 				INFOPLIST_FILE = SwiftyProtein/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = mponomar.SwiftyProtein;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mponoamar.SwiftyProtein;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		23DB192320ED193A00768248 /* Release */ = {
+		23095A4C20EFDEBD00CF299F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = A7A6C24PU5;
 				INFOPLIST_FILE = SwiftyProtein/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = mponomar.SwiftyProtein;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mponoamar.SwiftyProtein;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -343,25 +301,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		23DB190A20ED193700768248 /* Build configuration list for PBXProject "SwiftyProtein" */ = {
+		23095A3320EFDEBD00CF299F /* Build configuration list for PBXProject "SwiftyProtein" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				23DB191F20ED193A00768248 /* Debug */,
-				23DB192020ED193A00768248 /* Release */,
+				23095A4820EFDEBD00CF299F /* Debug */,
+				23095A4920EFDEBD00CF299F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		23DB192120ED193A00768248 /* Build configuration list for PBXNativeTarget "SwiftyProtein" */ = {
+		23095A4A20EFDEBD00CF299F /* Build configuration list for PBXNativeTarget "SwiftyProtein" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				23DB192220ED193A00768248 /* Debug */,
-				23DB192320ED193A00768248 /* Release */,
+				23095A4B20EFDEBD00CF299F /* Debug */,
+				23095A4C20EFDEBD00CF299F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 23DB190720ED193700768248 /* Project object */;
+	rootObject = 23095A3020EFDEBD00CF299F /* Project object */;
 }

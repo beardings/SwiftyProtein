@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  SwiftyProtein
 //
-//  Created by Nikolas Ponomarov on 04.07.2018.
-//  Copyright © 2018 Nikolas Ponomarov. All rights reserved.
+//  Created by Mykola Ponomarov on 06.07.2018.
+//  Copyright © 2018 Mykola Ponomarov. All rights reserved.
 //
 
 import UIKit

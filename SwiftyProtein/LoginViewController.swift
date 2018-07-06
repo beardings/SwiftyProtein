@@ -32,11 +32,12 @@ class LoginViewController: UIViewController {
         super.viewDidAppear(true)
         
         self.title = "Login"
-        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            self.touchIDBtn.isHidden = false
-        } else {
-            print("Error")
-        }
+        
+//        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+//            self.touchIDBtn.isHidden = false
+//        } else {
+//            print("Error")
+//        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
