@@ -32,6 +32,10 @@ class LoginViewController: UIViewController {
         super.viewDidAppear(true)
         
         self.title = "Login"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        // for test
+        self.touchIDBtn.isHidden = false
         
 //        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
 //            self.touchIDBtn.isHidden = false
@@ -71,23 +75,30 @@ class LoginViewController: UIViewController {
         
         let reason = "Authenticate with Touch ID"
         
-        context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { (success, evaluateError) in
-            
-            if success {
-                DispatchQueue.main.async {
-                    
-                    let controller = ProteinListViewController.init(nibName: nil, bundle: nil)
-                    controller.title = "Proteins List"
-                    
-                    self.navigationController?.pushViewController(controller, animated: true)
-                    
-                    //self.showAlertController("Touch ID Authentication Succeeded", "Succeeded")
-                }
-            } else {
-                self.showAlertController("Touch ID Authentication Failed", "Failed")
-            }
-            
-        }
+        // for test
+        
+        let controller = ProteinListViewController.init(nibName: nil, bundle: nil)
+        controller.title = "Proteins List"
+        
+        self.navigationController?.pushViewController(controller, animated: true)
+        
+//        context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { (success, evaluateError) in
+//
+//            if success {
+//                DispatchQueue.main.async {
+//
+//                    let controller = ProteinListViewController.init(nibName: nil, bundle: nil)
+//                    controller.title = "Proteins List"
+//
+//                    self.navigationController?.pushViewController(controller, animated: true)
+//
+//                    //self.showAlertController("Touch ID Authentication Succeeded", "Succeeded")
+//                }
+//            } else {
+//                self.showAlertController("Touch ID Authentication Failed", "Failed")
+//            }
+//
+//        }
     }
 
 }

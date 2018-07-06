@@ -7,17 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2302A62F20EFE3C300DA9937 /* ProteinListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2302A62C20EFE3C300DA9937 /* ProteinListViewController.swift */; };
+		2302A63020EFE3C300DA9937 /* ProteinListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2302A62D20EFE3C300DA9937 /* ProteinListViewController.xib */; };
+		2302A63120EFE3C300DA9937 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2302A62E20EFE3C300DA9937 /* LoginViewController.swift */; };
+		2302A63520EFE3DE00DA9937 /* ligands.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2302A63420EFE3DE00DA9937 /* ligands.txt */; };
 		23095A3C20EFDEBD00CF299F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23095A3B20EFDEBD00CF299F /* AppDelegate.swift */; };
-		23095A3E20EFDEBD00CF299F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23095A3D20EFDEBD00CF299F /* ViewController.swift */; };
 		23095A4120EFDEBD00CF299F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23095A3F20EFDEBD00CF299F /* Main.storyboard */; };
 		23095A4320EFDEBD00CF299F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23095A4220EFDEBD00CF299F /* Assets.xcassets */; };
 		23095A4620EFDEBD00CF299F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23095A4420EFDEBD00CF299F /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2302A62C20EFE3C300DA9937 /* ProteinListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProteinListViewController.swift; sourceTree = "<group>"; };
+		2302A62D20EFE3C300DA9937 /* ProteinListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProteinListViewController.xib; sourceTree = "<group>"; };
+		2302A62E20EFE3C300DA9937 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2302A63420EFE3DE00DA9937 /* ligands.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ligands.txt; sourceTree = "<group>"; };
 		23095A3820EFDEBD00CF299F /* SwiftyProtein.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyProtein.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23095A3B20EFDEBD00CF299F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		23095A3D20EFDEBD00CF299F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		23095A4020EFDEBD00CF299F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		23095A4220EFDEBD00CF299F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23095A4520EFDEBD00CF299F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -35,6 +41,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2302A63620EFE73800DA9937 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				23095A4420EFDEBD00CF299F /* LaunchScreen.storyboard */,
+				23095A4720EFDEBD00CF299F /* Info.plist */,
+				23095A4220EFDEBD00CF299F /* Assets.xcassets */,
+				2302A63420EFE3DE00DA9937 /* ligands.txt */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2302A63B20EFE76800DA9937 /* Main FIles */ = {
+			isa = PBXGroup;
+			children = (
+				23095A3F20EFDEBD00CF299F /* Main.storyboard */,
+				2302A62E20EFE3C300DA9937 /* LoginViewController.swift */,
+				2302A62C20EFE3C300DA9937 /* ProteinListViewController.swift */,
+				2302A62D20EFE3C300DA9937 /* ProteinListViewController.xib */,
+			);
+			name = "Main FIles";
+			sourceTree = "<group>";
+		};
 		23095A2F20EFDEBD00CF299F = {
 			isa = PBXGroup;
 			children = (
@@ -55,11 +83,8 @@
 			isa = PBXGroup;
 			children = (
 				23095A3B20EFDEBD00CF299F /* AppDelegate.swift */,
-				23095A3D20EFDEBD00CF299F /* ViewController.swift */,
-				23095A3F20EFDEBD00CF299F /* Main.storyboard */,
-				23095A4220EFDEBD00CF299F /* Assets.xcassets */,
-				23095A4420EFDEBD00CF299F /* LaunchScreen.storyboard */,
-				23095A4720EFDEBD00CF299F /* Info.plist */,
+				2302A63B20EFE76800DA9937 /* Main FIles */,
+				2302A63620EFE73800DA9937 /* Supporting Files */,
 			);
 			path = SwiftyProtein;
 			sourceTree = "<group>";
@@ -124,7 +149,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				23095A4620EFDEBD00CF299F /* LaunchScreen.storyboard in Resources */,
+				2302A63520EFE3DE00DA9937 /* ligands.txt in Resources */,
 				23095A4320EFDEBD00CF299F /* Assets.xcassets in Resources */,
+				2302A63020EFE3C300DA9937 /* ProteinListViewController.xib in Resources */,
 				23095A4120EFDEBD00CF299F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,7 +163,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				23095A3E20EFDEBD00CF299F /* ViewController.swift in Sources */,
+				2302A63120EFE3C300DA9937 /* LoginViewController.swift in Sources */,
+				2302A62F20EFE3C300DA9937 /* ProteinListViewController.swift in Sources */,
 				23095A3C20EFDEBD00CF299F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,9 +303,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SwiftyProtein/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mponoamar.SwiftyProtein;
+				PRODUCT_BUNDLE_IDENTIFIER = mponomar.SwiftyProtein;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -289,9 +319,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SwiftyProtein/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = mponoamar.SwiftyProtein;
+				PRODUCT_BUNDLE_IDENTIFIER = mponomar.SwiftyProtein;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

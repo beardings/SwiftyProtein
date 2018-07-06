@@ -34,6 +34,8 @@ class ProteinListViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search Proteins"
