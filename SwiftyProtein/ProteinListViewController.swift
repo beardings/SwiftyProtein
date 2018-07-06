@@ -8,10 +8,13 @@
 
 import UIKit
 
-class ProteinListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ProteinListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
 
     @IBOutlet weak var tableVIew: UITableView!
     var listProteins = [String]()
+    var filterProteins = [String]()
+    let searchController = UISearchController(searchResultsController: nil)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +25,6 @@ class ProteinListViewController: UIViewController, UITableViewDelegate, UITableV
         
         self.tableVIew.delegate = self
         self.tableVIew.dataSource = self
-        //print(listProteins.count)
-        //print(str)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -32,6 +33,12 @@ class ProteinListViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(true)
+        
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search Proteins"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -47,7 +54,35 @@ class ProteinListViewController: UIViewController, UITableViewDelegate, UITableV
         
     }
     
-    //MARK: - Table View delegate, datasourse
+    //MARK: - Search Result Updating Delegate
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
+    
+    func searchBarIsEmpty() -> Bool {
+        
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
+        
+        filterProteins.removeAll()
+        
+        for protein in listProteins {
+            if (protein.lowercased().contains(searchText.lowercased())) {
+                filterProteins.append(protein);
+            }
+        }
+
+        tableVIew.reloadData()
+    }
+    
+    func isFiltering() -> Bool {
+        return searchController.isActive && !searchBarIsEmpty()
+    }
+    
+    //MARK: - Table View Delegate, Datasourse
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -58,14 +93,23 @@ class ProteinListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return listProteins.count
+        
+        if isFiltering() {
+            return filterProteins.count
+        }
+        
+        return listProteins.count - 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell()
-        cell.textLabel?.text = listProteins[indexPath.row]
         
+        if isFiltering() {
+            cell.textLabel?.text = filterProteins[indexPath.row]
+        } else {
+             cell.textLabel?.text = listProteins[indexPath.row]
+        }
         return cell
     }
 
