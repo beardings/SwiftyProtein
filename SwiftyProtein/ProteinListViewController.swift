@@ -87,7 +87,11 @@ class ProteinListViewController: UIViewController, UITableViewDelegate, UITableV
     //MARK: - Table View Delegate, Datasourse
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if isFiltering() {
+            getPDBdata(filterProteins[indexPath.row])
+        } else {
+             getPDBdata(listProteins[indexPath.row])
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -130,6 +134,26 @@ class ProteinListViewController: UIViewController, UITableViewDelegate, UITableV
             }
         }
         return ""
+    }
+    
+    func getPDBdata(_ title: String) -> Void {
+        
+        let str = "https://files.rcsb.org/ligands/view/" + title + "_model.pdb"
+        
+        let url = URL(string: str)
+        
+        let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
+            
+            let pdb = String(data: data!, encoding: String.Encoding.utf8)
+            
+            let pdbByRow = pdb?.components(separatedBy: CharacterSet.newlines)
+            
+            // open next view controller
+            
+        }
+        
+        task.resume()
+        
     }
 
 }
