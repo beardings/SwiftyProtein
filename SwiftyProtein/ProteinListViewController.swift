@@ -73,7 +73,7 @@ class ProteinListViewController: UIViewController, UITableViewDelegate, UITableV
         
         for protein in listProteins {
             if (protein.lowercased().contains(searchText.lowercased())) {
-                filterProteins.append(protein);
+                filterProteins.append(protein)
             }
         }
 
@@ -86,11 +86,16 @@ class ProteinListViewController: UIViewController, UITableViewDelegate, UITableV
     
     //MARK: - Table View Delegate, Datasourse
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         if isFiltering() {
-            getPDBdata(filterProteins[indexPath.row])
+            getPDBdata(filterProteins[indexPath.row], tableView.cellForRow(at: indexPath) as! CustomTableViewCell)
         } else {
-             getPDBdata(listProteins[indexPath.row])
+            getPDBdata(listProteins[indexPath.row], tableView.cellForRow(at: indexPath) as! CustomTableViewCell)
         }
     }
     
@@ -109,17 +114,34 @@ class ProteinListViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = UITableViewCell()
+        var cell = tableView.dequeueReusableCell(withIdentifier: "Custom Cell") as! CustomTableViewCell?
+        
+        if (cell == nil) {
+            tableVIew.register(UINib.init(nibName: "CustomTableViewCell", bundle: nil), forCellReuseIdentifier: "Custom Cell")
+            cell = tableView.dequeueReusableCell(withIdentifier: "Custom Cell") as! CustomTableViewCell?
+        }
         
         if isFiltering() {
-            cell.textLabel?.text = filterProteins[indexPath.row]
+            cell?.textLbl.text = filterProteins[indexPath.row]
         } else {
-             cell.textLabel?.text = listProteins[indexPath.row]
+            cell?.textLbl.text = listProteins[indexPath.row]
         }
-        return cell
+        
+        return cell!
     }
 
-    // MARK: - Load data from file
+    // MARK: - Custom methods
+    
+    func showAlertController(_ message: String, _ title: String) {
+        
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    // MARK: - Load data
     
     func LoadFileAsString() -> (String)
     {
@@ -136,7 +158,11 @@ class ProteinListViewController: UIViewController, UITableViewDelegate, UITableV
         return ""
     }
     
-    func getPDBdata(_ title: String) -> Void {
+    func getPDBdata(_ title: String, _ cell: CustomTableViewCell) -> Void {
+        
+        DispatchQueue.main.async {
+            cell.indicator.startAnimating()
+        }
         
         let str = "https://files.rcsb.org/ligands/view/" + title + "_model.pdb"
         
@@ -144,16 +170,26 @@ class ProteinListViewController: UIViewController, UITableViewDelegate, UITableV
         
         let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
             
+            if (error != nil) {
+                
+                DispatchQueue.main.async {
+                    cell.indicator.stopAnimating()
+                    self.showAlertController((error?.localizedDescription)!, "Warning")
+                }
+                return ;
+            }
+            
             let pdb = String(data: data!, encoding: String.Encoding.utf8)
             
             let pdbByRow = pdb?.components(separatedBy: CharacterSet.newlines)
             
+            DispatchQueue.main.async {
+                cell.indicator.stopAnimating()
+            }
+            
             // open next view controller
             
         }
-        
         task.resume()
-        
     }
-
 }

@@ -15,6 +15,8 @@
 		23095A4120EFDEBD00CF299F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23095A3F20EFDEBD00CF299F /* Main.storyboard */; };
 		23095A4320EFDEBD00CF299F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23095A4220EFDEBD00CF299F /* Assets.xcassets */; };
 		23095A4620EFDEBD00CF299F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23095A4420EFDEBD00CF299F /* LaunchScreen.storyboard */; };
+		23DE550F20F351E800A13899 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DE550D20F351E800A13899 /* CustomTableViewCell.swift */; };
+		23DE551020F351E800A13899 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23DE550E20F351E800A13899 /* CustomTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		23095A4220EFDEBD00CF299F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		23095A4520EFDEBD00CF299F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		23095A4720EFDEBD00CF299F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23DE550D20F351E800A13899 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		23DE550E20F351E800A13899 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +59,7 @@
 		2302A63B20EFE76800DA9937 /* Main FIles */ = {
 			isa = PBXGroup;
 			children = (
+				23DE550C20F351CB00A13899 /* Custom Cell */,
 				23095A3F20EFDEBD00CF299F /* Main.storyboard */,
 				2302A62E20EFE3C300DA9937 /* LoginViewController.swift */,
 				2302A62C20EFE3C300DA9937 /* ProteinListViewController.swift */,
@@ -87,6 +92,15 @@
 				2302A63620EFE73800DA9937 /* Supporting Files */,
 			);
 			path = SwiftyProtein;
+			sourceTree = "<group>";
+		};
+		23DE550C20F351CB00A13899 /* Custom Cell */ = {
+			isa = PBXGroup;
+			children = (
+				23DE550D20F351E800A13899 /* CustomTableViewCell.swift */,
+				23DE550E20F351E800A13899 /* CustomTableViewCell.xib */,
+			);
+			name = "Custom Cell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +164,7 @@
 			files = (
 				23095A4620EFDEBD00CF299F /* LaunchScreen.storyboard in Resources */,
 				2302A63520EFE3DE00DA9937 /* ligands.txt in Resources */,
+				23DE551020F351E800A13899 /* CustomTableViewCell.xib in Resources */,
 				23095A4320EFDEBD00CF299F /* Assets.xcassets in Resources */,
 				2302A63020EFE3C300DA9937 /* ProteinListViewController.xib in Resources */,
 				23095A4120EFDEBD00CF299F /* Main.storyboard in Resources */,
@@ -165,6 +180,7 @@
 			files = (
 				2302A63120EFE3C300DA9937 /* LoginViewController.swift in Sources */,
 				2302A62F20EFE3C300DA9937 /* ProteinListViewController.swift in Sources */,
+				23DE550F20F351E800A13899 /* CustomTableViewCell.swift in Sources */,
 				23095A3C20EFDEBD00CF299F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,7 +319,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = A7A6C24PU5;
 				INFOPLIST_FILE = SwiftyProtein/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -319,7 +335,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = A7A6C24PU5;
 				INFOPLIST_FILE = SwiftyProtein/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

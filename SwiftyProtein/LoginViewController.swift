@@ -34,14 +34,14 @@ class LoginViewController: UIViewController {
         self.title = "Login"
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        // for test
-        self.touchIDBtn.isHidden = false
+//        // for test
+//        self.touchIDBtn.isHidden = false
         
-//        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-//            self.touchIDBtn.isHidden = false
-//        } else {
-//            print("Error")
-//        }
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            self.touchIDBtn.isHidden = false
+        } else {
+            self.showAlertController((error?.localizedDescription)!, "Warning")
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -75,30 +75,29 @@ class LoginViewController: UIViewController {
         
         let reason = "Authenticate with Touch ID"
         
-        // for test
+//        // for test
+//
+//        let controller = ProteinListViewController.init(nibName: nil, bundle: nil)
+//        controller.title = "Proteins List"
+//
+//        self.navigationController?.pushViewController(controller, animated: true)
         
-        let controller = ProteinListViewController.init(nibName: nil, bundle: nil)
-        controller.title = "Proteins List"
-        
-        self.navigationController?.pushViewController(controller, animated: true)
-        
-//        context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { (success, evaluateError) in
-//
-//            if success {
-//                DispatchQueue.main.async {
-//
-//                    let controller = ProteinListViewController.init(nibName: nil, bundle: nil)
-//                    controller.title = "Proteins List"
-//
-//                    self.navigationController?.pushViewController(controller, animated: true)
-//
-//                    //self.showAlertController("Touch ID Authentication Succeeded", "Succeeded")
-//                }
-//            } else {
-//                self.showAlertController("Touch ID Authentication Failed", "Failed")
-//            }
-//
-//        }
+        context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { (success, evaluateError) in
+
+            if success {
+                DispatchQueue.main.async {
+
+                    let controller = ProteinListViewController.init(nibName: nil, bundle: nil)
+                    controller.title = "Proteins List"
+
+                    self.navigationController?.pushViewController(controller, animated: true)
+                    
+                }
+            } else {
+                self.showAlertController((evaluateError?.localizedDescription)!, "Warning")
+            }
+
+        }
     }
 
 }
