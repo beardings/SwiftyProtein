@@ -14,14 +14,16 @@ class ProteinListViewController: UIViewController, UITableViewDelegate, UITableV
     var listProteins = [String]()
     var filterProteins = [String]()
     let searchController = UISearchController(searchResultsController: nil)
-    
+    var str: String? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        let str = self.LoadFileAsString()
-
-        listProteins = str.components(separatedBy: CharacterSet.newlines)
+        if str == nil
+        {
+            str = self.LoadFileAsString()
+            listProteins = (str?.components(separatedBy: CharacterSet.newlines))!
+        }
         
         self.tableVIew.delegate = self
         self.tableVIew.dataSource = self
@@ -32,7 +34,7 @@ class ProteinListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+        super.viewWillAppear(true)
         
         navigationController?.navigationBar.prefersLargeTitles = true
         
@@ -41,6 +43,10 @@ class ProteinListViewController: UIViewController, UITableViewDelegate, UITableV
         searchController.searchBar.placeholder = "Search Proteins"
         navigationItem.searchController = searchController
         definesPresentationContext = true
+        
+        if let index = self.tableVIew.indexPathForSelectedRow {
+            self.tableVIew.deselectRow(at: index, animated: true)
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -48,7 +54,7 @@ class ProteinListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        super.viewDidDisappear(true)
+        super.viewWillDisappear(true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -97,6 +103,10 @@ class ProteinListViewController: UIViewController, UITableViewDelegate, UITableV
         } else {
             getPDBdata(listProteins[indexPath.row], tableView.cellForRow(at: indexPath) as! CustomTableViewCell)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        //tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -179,16 +189,17 @@ class ProteinListViewController: UIViewController, UITableViewDelegate, UITableV
                 return ;
             }
             
-            let pdb = String(data: data!, encoding: String.Encoding.utf8)
-            
-            let pdbByRow = pdb?.components(separatedBy: CharacterSet.newlines)
-            
             DispatchQueue.main.async {
+                let pdb = String(data: data!, encoding: String.Encoding.utf8)
+                
+                let proteinVC = ProteinViewController.init(nibName: nil, bundle: nil)
+                proteinVC.title = "Protein: " + title
+                proteinVC.proteinData = (pdb?.components(separatedBy: CharacterSet.newlines))!
+                
+                self.navigationController?.pushViewController(proteinVC, animated: true)
+                
                 cell.indicator.stopAnimating()
             }
-            
-            // open next view controller
-            
         }
         task.resume()
     }

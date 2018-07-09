@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+        super.viewWillAppear(true)
         
         self.title = "Login"
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -49,7 +49,7 @@ class LoginViewController: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        super.viewDidDisappear(true)
+        super.viewWillDisappear(true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -57,7 +57,7 @@ class LoginViewController: UIViewController {
         
     }
     
-    // MARK: - Properties
+    // MARK: - Custom methods
     
     
     // MARK: - Actions
