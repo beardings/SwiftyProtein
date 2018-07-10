@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SwiftyProtein/ProteinListViewController.swift"
-            timestampString = "552839415.594573"
+            timestampString = "552914888.689465"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
+            startingLineNumber = "195"
+            endingLineNumber = "195"
             landmarkName = "getPDBdata(_:_:)"
             landmarkType = "7">
          </BreakpointContent>

@@ -106,7 +106,9 @@ class ProteinListViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        //tableView.deselectRow(at: indexPath, animated: true)
+        if let index = self.tableVIew.indexPathForSelectedRow {
+            self.tableVIew.deselectRow(at: index, animated: true)
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
