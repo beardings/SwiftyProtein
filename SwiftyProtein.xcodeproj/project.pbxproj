@@ -66,13 +66,10 @@
 		2302A63B20EFE76800DA9937 /* Main FIles */ = {
 			isa = PBXGroup;
 			children = (
-				23DE550C20F351CB00A13899 /* Custom Cell */,
 				23095A3F20EFDEBD00CF299F /* Main.storyboard */,
 				2302A62E20EFE3C300DA9937 /* LoginViewController.swift */,
-				2302A62C20EFE3C300DA9937 /* ProteinListViewController.swift */,
-				2302A62D20EFE3C300DA9937 /* ProteinListViewController.xib */,
-				23DE551120F39BCD00A13899 /* ProteinViewController.swift */,
-				23DE551220F39BCD00A13899 /* ProteinViewController.xib */,
+				23F8FCC120F4E75000F2DADF /* Ptotein List */,
+				23F8FCC220F4E76600F2DADF /* Protein View */,
 			);
 			name = "Main FIles";
 			sourceTree = "<group>";
@@ -119,6 +116,25 @@
 				23DE551620F3A30C00A13899 /* SceneKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		23F8FCC120F4E75000F2DADF /* Ptotein List */ = {
+			isa = PBXGroup;
+			children = (
+				23DE550C20F351CB00A13899 /* Custom Cell */,
+				2302A62C20EFE3C300DA9937 /* ProteinListViewController.swift */,
+				2302A62D20EFE3C300DA9937 /* ProteinListViewController.xib */,
+			);
+			name = "Ptotein List";
+			sourceTree = "<group>";
+		};
+		23F8FCC220F4E76600F2DADF /* Protein View */ = {
+			isa = PBXGroup;
+			children = (
+				23DE551120F39BCD00A13899 /* ProteinViewController.swift */,
+				23DE551220F39BCD00A13899 /* ProteinViewController.xib */,
+			);
+			name = "Protein View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -22,7 +22,6 @@ class ProteinViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        navigationController?.navigationBar.prefersLargeTitles = true
         let rightBtn = UIBarButtonItem(title: "Share", style: .plain, target: self, action: #selector(shareButtonPressed))
         self.navigationItem.rightBarButtonItem = rightBtn
     }
@@ -43,13 +42,17 @@ class ProteinViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
 
-    // MARK: - Custom methods
+    // MARK: - Action methods
     
     @objc func shareButtonPressed() {
         
-        let urlString = "https://www.google.com"
-        let linkToShare = [urlString]
-        let activityController = UIActivityViewController(activityItems: linkToShare, applicationActivities: nil)
-        self.present(activityController, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            
+            let urlString = "https://www.google.com"
+            let linkToShare = [urlString]
+            let activityController = UIActivityViewController(activityItems: linkToShare, applicationActivities: nil)
+            self.present(activityController, animated: true, completion: nil)
+        
+        }
     }
 }

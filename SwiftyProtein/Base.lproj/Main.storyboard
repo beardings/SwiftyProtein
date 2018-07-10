@@ -18,8 +18,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.050000000000000003" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login" translatesAutoresizingMaskIntoConstraints="NO" id="dQq-Bw-tae">
+                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="UCN-oi-U9L">
+                                <rect key="frame" x="50" y="186" width="275" height="145"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BjN-J1-azb">
+                                        <rect key="frame" x="0.0" y="0.0" width="275" height="90"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J42-DE-606">
+                                                <rect key="frame" x="0.0" y="0.0" width="275" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="UNj-EH-pIT"/>
+                                                </constraints>
+                                                <color key="textColor" red="0.011764705882352941" green="0.15294117647058825" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HRl-Cy-85b">
+                                                <rect key="frame" x="0.0" y="50" width="275" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="gLN-ZF-fgc"/>
+                                                </constraints>
+                                                <color key="textColor" red="0.011764705882352941" green="0.15294117647058825" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="275" id="3Bp-EP-Iz7"/>
+                                        </constraints>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2CA-FC-LIu">
+                                        <rect key="frame" x="82.5" y="105" width="110" height="40"/>
+                                        <color key="backgroundColor" red="0.011764705882352941" green="0.15294117647058825" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="4Ia-k6-jgC"/>
+                                            <constraint firstAttribute="width" constant="110" id="HI1-D2-i7g"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                        <state key="normal" title="REGISTER">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Imc-fS-0xL">
-                                <rect key="frame" x="154.5" y="299.5" width="66" height="67"/>
+                                <rect key="frame" x="154" y="346" width="66" height="67"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="66" id="OrM-oJ-zkR"/>
                                     <constraint firstAttribute="height" constant="67" id="fQB-KY-Q6S"/>
@@ -32,8 +78,14 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Imc-fS-0xL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7mx-8k-ZUF"/>
-                            <constraint firstItem="Imc-fS-0xL" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="YOZ-Xz-Yd9"/>
+                            <constraint firstItem="Imc-fS-0xL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8iH-hW-qmt"/>
+                            <constraint firstItem="dQq-Bw-tae" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="CXB-Ww-uKx"/>
+                            <constraint firstItem="dQq-Bw-tae" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="DBm-db-iVs"/>
+                            <constraint firstAttribute="bottom" secondItem="dQq-Bw-tae" secondAttribute="bottom" id="NsT-x9-49f"/>
+                            <constraint firstItem="dQq-Bw-tae" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="TSU-A3-Lv0"/>
+                            <constraint firstItem="UCN-oi-U9L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fOo-uq-jid"/>
+                            <constraint firstItem="Imc-fS-0xL" firstAttribute="top" secondItem="UCN-oi-U9L" secondAttribute="bottom" constant="15" id="hTV-uP-s1u"/>
+                            <constraint firstItem="UCN-oi-U9L" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-75" id="mO7-MC-SVx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -44,15 +96,21 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="79" y="-279"/>
+            <point key="canvasLocation" x="77.599999999999994" y="-279.31034482758622"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1oq-9v-8Fs">
             <objects>
                 <navigationController id="O4v-Hv-Iee" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="o0O-3y-eYv">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="o0O-3y-eYv">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.011764705882352941" green="0.15294117647058825" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" red="0.011764705882352941" green="0.15294117647058825" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="rJL-aJ-8w4"/>
@@ -65,5 +123,6 @@
     </scenes>
     <resources>
         <image name="Touch-icon-lg" width="138" height="137"/>
+        <image name="login" width="375" height="666"/>
     </resources>
 </document>
