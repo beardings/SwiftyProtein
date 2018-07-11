@@ -45,20 +45,29 @@ class ProteinListViewController: UIViewController, UITableViewDelegate, UITableV
         if let index = self.tableVIew.indexPathForSelectedRow {
             self.tableVIew.deselectRow(at: index, animated: true)
         }
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(true)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(appDidEnterBackground), name: Notification.Name("appDidEnterBackground") , object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
     }
+    
+    @objc func appDidEnterBackground(notification: Notification) {
+        self.navigationController?.popToRootViewController(animated: false)
+    }
+    
     
     //MARK: - Search Result Updating Delegate
     

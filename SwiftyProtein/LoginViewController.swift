@@ -25,6 +25,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            self.touchIDBtn.isHidden = false
+        } else {
+            self.showAlertController((error?.localizedDescription)!, "Warning")
+        }
+        
         self.loginTF.delegate = self
         self.passwordTF.delegate = self
     }
@@ -46,12 +52,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 self.loginBtn.setTitle("LOGIN", for: .normal)
                 self.loginBtn.tag = 1
             }
-        }
-        
-        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            self.touchIDBtn.isHidden = false
-        } else {
-            self.showAlertController((error?.localizedDescription)!, "Warning")
         }
         
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(dismissKeyboard))

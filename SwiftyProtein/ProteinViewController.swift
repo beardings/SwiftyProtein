@@ -16,7 +16,7 @@ class ProteinViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -24,6 +24,8 @@ class ProteinViewController: UIViewController {
         
         let rightBtn = UIBarButtonItem(title: "Share", style: .plain, target: self, action: #selector(shareButtonPressed))
         self.navigationItem.rightBarButtonItem = rightBtn
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(appDidEnterBackground), name: Notification.Name("appDidEnterBackground") , object: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -36,6 +38,8 @@ class ProteinViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
+        
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,6 +47,10 @@ class ProteinViewController: UIViewController {
     }
 
     // MARK: - Action methods
+    
+    @objc func appDidEnterBackground(notification: Notification) {
+        self.navigationController?.popToRootViewController(animated: false)
+    }
     
     @objc func shareButtonPressed() {
         
