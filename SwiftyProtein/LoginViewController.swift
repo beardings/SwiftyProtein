@@ -9,46 +9,66 @@
 import UIKit
 import LocalAuthentication
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     let context = LAContext()
     var error: NSError?
     
     @IBOutlet weak var touchIDBtn: UIButton!
+    @IBOutlet weak var loginBtn: UIButton!
+    @IBOutlet weak var loginTF: UITextField!
+    @IBOutlet weak var passwordTF: UITextField!
+    @IBOutlet weak var deleteAccBtn: UIButton!
     
     // MARK:
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-    
+        self.loginTF.delegate = self
+        self.passwordTF.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        self.title = "Login"
-        
-//        // for test
-//        self.touchIDBtn.isHidden = false
+        if (!UserDefaults.standard.bool(forKey: "UserIsCreated")) {
+            DispatchQueue.main.async {
+                self.title = "Register"
+                self.loginBtn.setTitle("REGISTER", for: .normal)
+                self.loginBtn.tag = 0
+                
+                self.deleteAccBtn.isHidden = true
+            }
+        } else {
+            DispatchQueue.main.async {
+                self.title = "Login"
+                self.loginBtn.setTitle("LOGIN", for: .normal)
+                self.loginBtn.tag = 1
+            }
+        }
         
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
             self.touchIDBtn.isHidden = false
         } else {
             self.showAlertController((error?.localizedDescription)!, "Warning")
         }
+        
+        let tap = UITapGestureRecognizer.init(target: self, action: #selector(dismissKeyboard))
+        self.view.addGestureRecognizer(tap)
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(true)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
     }
     
     override func didReceiveMemoryWarning() {
@@ -57,6 +77,10 @@ class LoginViewController: UIViewController {
     }
     
     // MARK: - Custom methods
+    
+    @objc func dismissKeyboard() {
+        self.view.endEditing(true)
+    }
     
     func hexStringToUIColor(hex:String) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
@@ -80,7 +104,77 @@ class LoginViewController: UIViewController {
         )
     }
     
+    func checkTFIsNotEmpty() -> (Bool) {
+        
+        if (self.loginTF.text?.count)! < 6 {
+            self.showAlertController("The length of your login must be more than 5 characters.", "Warning")
+            return false
+        }
+        
+        if (self.passwordTF.text?.count)! < 6 {
+            self.showAlertController("The length of your password must be more than 5 characters.", "Warning")
+            return false
+        }
+        
+        return true
+    }
+    
+    // MARK: - UITextField Delegate
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
+    }
+    
     // MARK: - Actions
+    
+    @IBAction func loginBtnPressed(_ sender: Any) {
+        
+        dismissKeyboard()
+        
+        if self.loginBtn.tag == 0 {
+            
+            if checkTFIsNotEmpty() {
+                
+                UserDefaults.standard.set(self.loginTF.text, forKey: "login")
+                UserDefaults.standard.set(self.passwordTF.text, forKey: "password")
+                UserDefaults.standard.set(true, forKey: "UserIsCreated")
+                UserDefaults.standard.synchronize()
+                
+                DispatchQueue.main.async {
+                    self.title = "Login"
+                    self.loginBtn.setTitle("LOGIN", for: .normal)
+                    self.loginBtn.tag = 1
+                }
+                
+                self.deleteAccBtn.isHidden = false
+                self.showAlertController("Account successfully registered.", "Congratulations")
+            }
+            
+        } else {
+            if self.loginTF.text == UserDefaults.standard.string(forKey: "login") && self.passwordTF.text == UserDefaults.standard.string(forKey: "password") {
+                
+                DispatchQueue.main.async {
+                    
+                    let controller = ProteinListViewController.init(nibName: nil, bundle: nil)
+                    controller.title = "Proteins List"
+                    
+                    self.navigationController?.pushViewController(controller, animated: true)
+                    
+                }
+                
+            } else {
+                 self.showAlertController("Password or login do not match.", "Warning")
+            }
+        }
+    }
     
     func showAlertController(_ message: String, _ title: String) {
         
@@ -93,14 +187,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func touchIDBtnPressed(_ sender: Any) {
         
-        let reason = "Authenticate with Touch ID"
-        
-//        // for test
-//
-//        let controller = ProteinListViewController.init(nibName: nil, bundle: nil)
-//        controller.title = "Proteins List"
-//
-//        self.navigationController?.pushViewController(controller, animated: true)
+        let reason = "Authenticate with Touch ID."
         
         context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { (success, evaluateError) in
 
@@ -118,6 +205,37 @@ class LoginViewController: UIViewController {
             }
 
         }
+    }
+    
+    @IBAction func deleteAccPressed(_ sender: Any) {
+        
+        let alertController = UIAlertController(title: "Caution!", message: "Are you sure you want to delete this account?", preferredStyle: .actionSheet)
+        
+        alertController.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (UIAleatAction) -> Void in
+            
+            self.loginTF.text = ""
+            self.passwordTF.text = ""
+            
+            UserDefaults.standard.removeObject(forKey: "login")
+            UserDefaults.standard.removeObject(forKey: "password")
+            UserDefaults.standard.set(false, forKey: "UserIsCreated")
+            UserDefaults.standard.synchronize()
+            
+            DispatchQueue.main.async {
+                self.title = "Register"
+                self.loginBtn.setTitle("REGISTER", for: .normal)
+                self.loginBtn.tag = 0
+            }
+            
+            self.deleteAccBtn.isHidden = true
+            self.showAlertController("This account has been successfully deleted.", "Congratulations")
+            
+        }))
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        present(alertController, animated: true, completion: nil)
+        
     }
 
 }

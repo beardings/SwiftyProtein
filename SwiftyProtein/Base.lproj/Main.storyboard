@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="116" width="375" height="551"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="UCN-oi-U9L">
-                                <rect key="frame" x="50" y="186" width="275" height="145"/>
+                                <rect key="frame" x="50" y="211" width="275" height="145"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BjN-J1-azb">
                                         <rect key="frame" x="0.0" y="0.0" width="275" height="90"/>
@@ -61,11 +61,14 @@
                                         <state key="normal" title="REGISTER">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loginBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vzn-cw-YcH"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Imc-fS-0xL">
-                                <rect key="frame" x="154" y="346" width="66" height="67"/>
+                                <rect key="frame" x="154" y="366" width="66" height="67"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="66" id="OrM-oJ-zkR"/>
                                     <constraint firstAttribute="height" constant="67" id="fQB-KY-Q6S"/>
@@ -73,6 +76,16 @@
                                 <state key="normal" image="Touch-icon-lg"/>
                                 <connections>
                                     <action selector="touchIDBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xns-Ms-LBo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CUi-Ly-rRS">
+                                <rect key="frame" x="130.5" y="620" width="114" height="27"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
+                                <state key="normal" title="Delete this account?">
+                                    <color key="titleColor" red="0.011764705882352941" green="0.15294117647058825" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteAccPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s8k-1D-Fr7"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -83,14 +96,20 @@
                             <constraint firstItem="dQq-Bw-tae" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="DBm-db-iVs"/>
                             <constraint firstAttribute="bottom" secondItem="dQq-Bw-tae" secondAttribute="bottom" id="NsT-x9-49f"/>
                             <constraint firstItem="dQq-Bw-tae" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="TSU-A3-Lv0"/>
+                            <constraint firstItem="CUi-Ly-rRS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aqV-SK-7VT"/>
                             <constraint firstItem="UCN-oi-U9L" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fOo-uq-jid"/>
-                            <constraint firstItem="Imc-fS-0xL" firstAttribute="top" secondItem="UCN-oi-U9L" secondAttribute="bottom" constant="15" id="hTV-uP-s1u"/>
-                            <constraint firstItem="UCN-oi-U9L" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-75" id="mO7-MC-SVx"/>
+                            <constraint firstItem="Imc-fS-0xL" firstAttribute="top" secondItem="UCN-oi-U9L" secondAttribute="bottom" constant="10" id="hTV-uP-s1u"/>
+                            <constraint firstItem="UCN-oi-U9L" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-50" id="mO7-MC-SVx"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CUi-Ly-rRS" secondAttribute="bottom" constant="20" id="ox0-zl-JHC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="9VO-GT-oBI"/>
                     <connections>
+                        <outlet property="deleteAccBtn" destination="CUi-Ly-rRS" id="Tua-ZU-CEM"/>
+                        <outlet property="loginBtn" destination="2CA-FC-LIu" id="o53-Kg-pc1"/>
+                        <outlet property="loginTF" destination="J42-DE-606" id="WHs-cg-aIG"/>
+                        <outlet property="passwordTF" destination="HRl-Cy-85b" id="ufG-D2-bRW"/>
                         <outlet property="touchIDBtn" destination="Imc-fS-0xL" id="fgo-Hw-mJo"/>
                     </connections>
                 </viewController>
