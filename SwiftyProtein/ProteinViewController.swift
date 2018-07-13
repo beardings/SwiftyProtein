@@ -13,9 +13,9 @@ import Photos
 extension UIView {
     func toImage() -> UIImage {
         UIGraphicsBeginImageContextWithOptions(bounds.size, true, UIScreen.main.scale)
-        
+
         drawHierarchy(in: self.bounds, afterScreenUpdates: false)
-        
+
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return image!
@@ -93,24 +93,10 @@ class ProteinViewController: UIViewController {
         
         DispatchQueue.main.async {
             
-//            // create graphics context with screen size
-//            let screenRect = UIScreen.main.bounds
-//            UIGraphicsBeginImageContext(screenRect.size);
-//            let ctx = UIGraphicsGetCurrentContext();
-//            ctx?.fill(screenRect);
-//
-//            // grab reference to our window
-//            let window = UIApplication.shared.keyWindow
-//
-//            // transfer content into our context
-//            window?.layer.render(in: ctx!)
-//            let imageToShare = UIGraphicsGetImageFromCurrentImageContext();
-//            UIGraphicsEndImageContext();
-            
             let imageToShare = self.view.toImage()
             
             let activityItems : NSMutableArray = []
-            activityItems.add(imageToShare)
+            activityItems.add(imageToShare as Any)
             
             let activityVC = UIActivityViewController(activityItems:activityItems as [AnyObject] , applicationActivities: nil)
             self.present(activityVC, animated: true, completion: nil)
@@ -188,8 +174,7 @@ class ProteinViewController: UIViewController {
         }
     }
     
-    
-    // MARK: Init methods
+    // MARK: - Init methods
     
     func createAtom(name: String, x: Double, y: Double, z: Double, number: Int) -> SCNNode
     {
