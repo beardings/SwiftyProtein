@@ -14,7 +14,7 @@ extension UIView {
     func toImage() -> UIImage {
         UIGraphicsBeginImageContextWithOptions(bounds.size, true, UIScreen.main.scale)
         
-        drawHierarchy(in: self.bounds, afterScreenUpdates: true)
+        drawHierarchy(in: self.bounds, afterScreenUpdates: false)
         
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -161,13 +161,13 @@ class ProteinViewController: UIViewController {
             return UIColor.init(red: 0.0, green: 0.0, blue: 128.0, alpha: 1)
         case "O":
             return UIColor.red
-        case "F", "Cl":
+        case "F", "CL":
             return UIColor.green
-        case "Br":
+        case "BR":
             return UIColor.init(red: 139.0, green: 0.0, blue: 0.0, alpha: 1)
         case "I":
             return UIColor.purple
-        case "He", "Ne", "Ar", "Xe", "Kr":
+        case "HE", "NE", "AR", "XE", "KR":
             return UIColor.cyan
         case "P":
             return UIColor.orange
@@ -175,13 +175,13 @@ class ProteinViewController: UIViewController {
             return UIColor.yellow
         case "B":
             return UIColor.init(red: 255.0, green: 229.0, blue: 180.0, alpha: 1)
-        case "Li", "Na", "K", "Rb", "Cs", "Fr":
+        case "LI", "NA", "K", "RB", "CS", "FR":
             return UIColor.init(red: 238.0, green: 130.0, blue: 238.0, alpha: 1)
-        case "Be", "Mg", "Ca", "Sr", "Ba", "Ra":
+        case "BE", "MG", "CA", "SR", "BA", "RA":
             return UIColor.init(red: 0.0, green: 100.0, blue: 0.0, alpha: 1)
-        case "Ti":
+        case "TI":
             return UIColor.gray
-        case "Fe":
+        case "FE":
             return UIColor.init(red: 255.0, green: 140.0, blue: 0.0, alpha: 1)
         default:
             return UIColor.init(red: 255.0, green: 192.0, blue: 203.0, alpha: 1)
