@@ -11,7 +11,7 @@ import SceneKit
 import Photos
 
 extension UIView {
-    func toImage() -> UIImage {
+    func shareImage() -> UIImage {
         UIGraphicsBeginImageContextWithOptions(bounds.size, true, UIScreen.main.scale)
 
         drawHierarchy(in: self.bounds, afterScreenUpdates: false)
@@ -93,7 +93,7 @@ class ProteinViewController: UIViewController {
         
         DispatchQueue.main.async {
             
-            let imageToShare = self.view.toImage()
+            let imageToShare = self.view.shareImage()
             
             let activityItems : NSMutableArray = []
             activityItems.add(imageToShare as Any)
