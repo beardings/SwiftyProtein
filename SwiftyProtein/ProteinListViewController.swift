@@ -46,6 +46,12 @@ class ProteinListViewController: UIViewController, UITableViewDelegate, UITableV
             self.tableVIew.deselectRow(at: index, animated: true)
         }
         
+        let cells = self.getAllCells()
+        
+        for cell in cells {
+            cell.isUserInteractionEnabled = true;
+        }
+        
         NotificationCenter.default.addObserver(self, selector: #selector(appDidEnterBackground), name: Notification.Name("appDidEnterBackground") , object: nil)
     }
     
@@ -110,6 +116,13 @@ class ProteinListViewController: UIViewController, UITableViewDelegate, UITableV
         } else {
             getPDBdata(listProteins[indexPath.row], tableView.cellForRow(at: indexPath) as! CustomTableViewCell)
         }
+        
+        let cells = self.getAllCells()
+        
+        for cell in cells {
+            cell.isUserInteractionEnabled = false;
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
@@ -150,6 +163,23 @@ class ProteinListViewController: UIViewController, UITableViewDelegate, UITableV
     }
 
     // MARK: - Custom methods
+    
+    func getAllCells() -> [CustomTableViewCell] {
+        
+        var cells = [CustomTableViewCell]()
+        for i in 0...tableVIew.numberOfSections-1
+        {
+            for j in 0...tableVIew.numberOfRows(inSection: i)-1
+            {
+                if let cell = tableVIew.cellForRow(at: NSIndexPath(row: j, section: i) as IndexPath) {
+                    
+                    cells.append(cell as! CustomTableViewCell)
+                }
+                
+            }
+        }
+        return cells
+    }
     
     func showAlertController(_ message: String, _ title: String) {
         

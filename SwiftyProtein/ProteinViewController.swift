@@ -26,12 +26,14 @@ class ProteinViewController: UIViewController {
 
     @IBOutlet weak var hideLinesBtn: UIButton!
     @IBOutlet weak var hideBallsBtn: UIButton!
+    @IBOutlet weak var switchShape: UIButton!
     
     @IBOutlet weak var colorTF: UITextField!
     @IBOutlet weak var atomName: UILabel!
     @IBOutlet weak var sceneView: SCNView!
     
     var proteinData = [String]()
+    var atomIsBall = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,12 +79,47 @@ class ProteinViewController: UIViewController {
     
     // MARK: - Action methods
     
+    @IBAction func switchAtomShape(_ sender: Any) {
+        for node in (sceneView.scene?.rootNode.childNodes)!
+        {
+            if node.name != nil && node.name != "-1" && atomIsBall == true
+            {
+                let name = node.name!
+                node.geometry = SCNBox(width: 0.7, height: 0.7, length: 0.7, chamferRadius: 0.1)
+                node.geometry?.firstMaterial!.diffuse.contents = getColor(name: findAtomName(number: Int(name)!))
+                node.geometry?.firstMaterial!.specular.contents = UIColor.white
+                node.name = name
+            }
+            else if node.name != nil && node.name != "-1" && atomIsBall == false
+            {
+                let name = node.name!
+                node.geometry = SCNSphere(radius: 0.4)
+                node.geometry?.firstMaterial!.diffuse.contents = getColor(name: findAtomName(number: Int(name)!))
+                node.geometry?.firstMaterial!.specular.contents = UIColor.white
+                node.name = name
+            }
+        }
+        atomIsBall = !atomIsBall
+        print("Changed")
+    }
     @IBAction func hideLinesBtnPressed(_ sender: Any) {
-        
+        for node in (sceneView.scene?.rootNode.childNodes)!
+        {
+            if node.name == "-1"
+            {
+                node.isHidden = !node.isHidden
+            }
+        }
     }
     
     @IBAction func hideBallsBtnPressed(_ sender: Any) {
-        
+        for node in (sceneView.scene?.rootNode.childNodes)!
+        {
+            if node.name != "-1"
+            {
+                node.isHidden = !node.isHidden
+            }
+        }
     }
     
     @objc func appDidEnterBackground(notification: Notification) {
@@ -101,6 +138,24 @@ class ProteinViewController: UIViewController {
             let activityVC = UIActivityViewController(activityItems:activityItems as [AnyObject] , applicationActivities: nil)
             self.present(activityVC, animated: true, completion: nil)
         }
+    }
+    
+    func findAtomName(number: Int) -> String
+    {
+        for i in proteinData
+        {
+            if i.hasPrefix("ATOM")
+            {
+                
+                let separatedString = i.split(separator: " ", maxSplits: 10000, omittingEmptySubsequences: true)
+                if (Int(number) == Int(separatedString[1])!)
+                {
+                    return String(separatedString[11])
+                }
+                
+            }
+        }
+        return "M"
     }
     
     @objc func showName(recognizer: UITapGestureRecognizer) {
@@ -229,7 +284,13 @@ class ProteinViewController: UIViewController {
             
         }
         
-        let temp = scene.rootNode.childNode(withName: String(Int(scene.rootNode.childNodes.count / 2)), recursively: true)
+        var temp = scene.rootNode.childNode(withName: String(Int(scene.rootNode.childNodes.count / 2 + 1)), recursively: true)
+        if temp == nil
+        {
+            let tempNode = SCNNode(geometry: SCNSphere(radius: 0.0))
+            tempNode.position = SCNVector3(0.0, 0.0, 1.0)
+            temp = tempNode
+        }
         let tempPosition = temp?.position
         for node in scene.rootNode.childNodes
         {
@@ -265,7 +326,6 @@ class ProteinViewController: UIViewController {
         }
         
         sceneView.scene = scene
-        
         print("Scene created")
     }
 }
