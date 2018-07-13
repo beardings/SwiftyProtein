@@ -12,6 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProteinViewController" customModule="SwiftyProtein" customModuleProvider="target">
             <connections>
+                <outlet property="atomName" destination="1aW-2t-IIw" id="19k-on-bIU"/>
+                <outlet property="colorTF" destination="YwV-cc-mot" id="9vz-k0-BaM"/>
+                <outlet property="hideBallsBtn" destination="cuU-6x-IcT" id="DeS-e4-XFb"/>
+                <outlet property="hideLinesBtn" destination="fkg-2R-myA" id="KP2-EX-JOT"/>
                 <outlet property="sceneView" destination="SO0-2a-GA9" id="zEa-4S-ig4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -21,18 +25,73 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SO0-2a-GA9">
-                    <rect key="frame" x="0.0" y="20" width="375" height="547"/>
+                <sceneKitView autoresizesSubviews="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" allowsCameraControl="YES" autoenablesDefaultLighting="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SO0-2a-GA9">
+                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                 </sceneKitView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected atom:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1aW-2t-IIw">
+                    <rect key="frame" x="16" y="36" width="118.5" height="20.5"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" red="0.011764705882352941" green="0.15294117647058825" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YwV-cc-mot">
+                    <rect key="frame" x="142.5" y="36" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="WLR-8T-a9n"/>
+                        <constraint firstAttribute="height" constant="20" id="XfF-aw-xhK"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkg-2R-myA">
+                    <rect key="frame" x="249" y="607" width="110" height="40"/>
+                    <color key="backgroundColor" red="0.01176470588" green="0.1529411765" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="110" id="DVZ-mv-Iew"/>
+                        <constraint firstAttribute="height" constant="40" id="Sfq-YL-fXu"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                    <state key="normal" title="Hide Lines">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="hideLinesBtnPressed:" destination="-1" eventType="touchUpInside" id="ASH-gv-uQB"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuU-6x-IcT">
+                    <rect key="frame" x="16" y="607" width="110" height="40"/>
+                    <color key="backgroundColor" red="0.012124273926019669" green="0.15215688943862915" blue="0.4036845862865448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="bzX-69-iaE"/>
+                        <constraint firstAttribute="width" constant="110" id="qCd-DZ-6tt"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                    <state key="normal" title="Hide Balls">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="hideBallsBtnPressed:" destination="-1" eventType="touchUpInside" id="A2X-9e-4zp"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="SO0-2a-GA9" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="0IK-Vd-ba2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="fkg-2R-myA" secondAttribute="trailing" constant="16" id="AKZ-cZ-1Ws"/>
+                <constraint firstItem="YwV-cc-mot" firstAttribute="centerY" secondItem="1aW-2t-IIw" secondAttribute="centerY" id="Jg9-JU-dnp"/>
                 <constraint firstItem="SO0-2a-GA9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Kzd-PN-XSm"/>
+                <constraint firstAttribute="bottom" secondItem="SO0-2a-GA9" secondAttribute="bottom" id="OWH-AR-NpV"/>
+                <constraint firstItem="1aW-2t-IIw" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="RZy-tS-FmR"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="cuU-6x-IcT" secondAttribute="bottom" constant="20" id="UNA-cc-OSS"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="SO0-2a-GA9" secondAttribute="trailing" id="WOw-L9-tAX"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="SO0-2a-GA9" secondAttribute="bottom" constant="100" id="pSQ-d1-Dya"/>
+                <constraint firstItem="1aW-2t-IIw" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="ZBN-kx-LPM"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="fkg-2R-myA" secondAttribute="bottom" constant="20" id="opO-Mu-Yoy"/>
+                <constraint firstItem="cuU-6x-IcT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="qR2-d7-03t"/>
+                <constraint firstItem="YwV-cc-mot" firstAttribute="leading" secondItem="1aW-2t-IIw" secondAttribute="trailing" constant="8" id="qa9-KV-AIq"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
     </objects>
 </document>
