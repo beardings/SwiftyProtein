@@ -224,6 +224,16 @@ class ProteinListViewController: UIViewController, UITableViewDelegate, UITableV
                 DispatchQueue.main.async {
                     cell.indicator.stopAnimating()
                     self.showAlertController((error?.localizedDescription)!, "Warning")
+                    
+                    let cells = self.getAllCells()
+                    
+                    for cell in cells {
+                        cell.isUserInteractionEnabled = true;
+                    }
+                    
+                    if let index = self.tableVIew.indexPathForSelectedRow {
+                        self.tableVIew.deselectRow(at: index, animated: true)
+                    }
                 }
                 return ;
             }

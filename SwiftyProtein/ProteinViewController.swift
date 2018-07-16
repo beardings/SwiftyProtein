@@ -192,6 +192,28 @@ class ProteinViewController: UIViewController {
     
     // MARK: - Get method
     
+    func hexStringToUIColor(hex:String) -> UIColor {
+        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        
+        if (cString.hasPrefix("#")) {
+            cString.remove(at: cString.startIndex)
+        }
+        
+        if ((cString.count) != 6) {
+            return UIColor.gray
+        }
+        
+        var rgbValue:UInt32 = 0
+        Scanner(string: cString).scanHexInt32(&rgbValue)
+        
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
+    
     func getColor(name: String) -> UIColor{
         switch name {
         case "H":
@@ -199,13 +221,13 @@ class ProteinViewController: UIViewController {
         case "C":
             return UIColor.black
         case "N":
-            return UIColor.init(red: 0.0, green: 0.0, blue: 128.0, alpha: 1)
+            return self.hexStringToUIColor(hex:"#2233FF")
         case "O":
             return UIColor.red
         case "F", "CL":
             return UIColor.green
         case "BR":
-            return UIColor.init(red: 139.0, green: 0.0, blue: 0.0, alpha: 1)
+            return self.hexStringToUIColor(hex:"#992100")
         case "I":
             return UIColor.purple
         case "HE", "NE", "AR", "XE", "KR":
@@ -215,17 +237,17 @@ class ProteinViewController: UIViewController {
         case "S":
             return UIColor.yellow
         case "B":
-            return UIColor.init(red: 255.0, green: 229.0, blue: 180.0, alpha: 1)
+            return self.hexStringToUIColor(hex:"#FFAA77")
         case "LI", "NA", "K", "RB", "CS", "FR":
-            return UIColor.init(red: 238.0, green: 130.0, blue: 238.0, alpha: 1)
+            return self.hexStringToUIColor(hex:"#7700FF")
         case "BE", "MG", "CA", "SR", "BA", "RA":
-            return UIColor.init(red: 0.0, green: 100.0, blue: 0.0, alpha: 1)
+            return self.hexStringToUIColor(hex:"#007700")
         case "TI":
             return UIColor.gray
         case "FE":
-            return UIColor.init(red: 255.0, green: 140.0, blue: 0.0, alpha: 1)
+            return self.hexStringToUIColor(hex:"#DD7700")
         default:
-            return UIColor.init(red: 255.0, green: 192.0, blue: 203.0, alpha: 1)
+            return self.hexStringToUIColor(hex:"#DD77FF")
         }
     }
     

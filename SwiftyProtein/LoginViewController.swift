@@ -33,6 +33,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         self.loginTF.delegate = self
         self.passwordTF.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(appDidEnterBackground), name: Notification.Name("appDidEnterBackground") , object: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -134,6 +136,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     // MARK: - Actions
+    
+    @objc func appDidEnterBackground(notification: Notification) {
+        self.loginTF.text = ""
+        self.passwordTF.text = ""
+    }
     
     @IBAction func loginBtnPressed(_ sender: Any) {
         
